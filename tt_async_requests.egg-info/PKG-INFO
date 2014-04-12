@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: tt-async-requests
+Version: 0.0.1
+Summary: TipTap asynchronous requests manager for Tornado.
+Home-page: UNKNOWN
+Author: TipTap
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: tt_async_requests
+        =========
+        
+        ## v0.0.1:
+        
+        * Initial release
+        
+Platform: UNKNOWN
