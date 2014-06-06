@@ -75,6 +75,6 @@ class AsyncRequestsManager(object):
             "completed async request to %s with response %s" %
             (response.request.url, response.code)
         )
-        if response.code == 200:
+        if response.code < 400:
             self.outstanding.pop(response.request, None)
             self._send_pending()
