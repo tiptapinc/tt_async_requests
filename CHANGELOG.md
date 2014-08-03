@@ -1,3 +1,7 @@
+## v0.0.3
+
+* only log failed asyncRequests
+
 ## v0.0.2
 
 * relaxed success requirements for sending to accept any result code less than 400

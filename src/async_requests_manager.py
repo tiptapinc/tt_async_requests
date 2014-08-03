@@ -38,13 +38,13 @@ class AsyncRequestsManager(object):
             if outstanding['lastSendTime'] + RESEND_INTERVAL < now:
                 if outstanding['sendCount'] >= MAX_SENDS:
                     log.info(
-                        "callback to %s expired - too many retries" %
+                        "asyncRequest to %s: expired - too many retries" %
                         request.url
                     )
                     self.outstanding.pop(request)
                 else:
                     log.info(
-                        "retrying callback to %s" %
+                        "asyncRequest to %s: retrying" %
                         request.url
                     )
                     self._send(request)
@@ -71,10 +71,11 @@ class AsyncRequestsManager(object):
         self.outstanding[request]['lastSendTime'] = time.time()
 
     def _request_complete(self, response):
-        log.info(
-            "completed async request to %s with response %s" %
-            (response.request.url, response.code)
-        )
         if response.code < 400:
             self.outstanding.pop(response.request, None)
             self._send_pending()
+        else:
+            log.info(
+                "asyncRequest to %s: failed with response %s" %
+                (response.request.url, response.code)
+            )
