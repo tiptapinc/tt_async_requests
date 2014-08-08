@@ -76,6 +76,12 @@ class AsyncRequestsManager(object):
             self._send_pending()
         else:
             log.info(
-                "asyncRequest to %s: failed with response %s" %
-                (response.request.url, response.code)
+                "asyncRequest failed. destination:%s, responseCode:%s "
+                "reason: %s: body:%s" %
+                (
+                    response.request.url,
+                    response.code,
+                    response.reason,
+                    response.request.body
+                )
             )
