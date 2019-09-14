@@ -1,3 +1,7 @@
+## v0.05
+
+* added support for python 3
+
 ## v0.0.4
 
 * more verbose logging for failed asyncRequests

@@ -1,1 +1,1 @@
-from async_requests_manager import AsyncRequestsManager
+from .async_requests_manager import AsyncRequestsManager
